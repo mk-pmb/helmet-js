@@ -45,6 +45,17 @@ app.use(
 );
 ```
 
+## CORS and embedding
+
+* For resources meant to be used by 3rd-party websites (e.g. API replies),
+  you'll need to disable `Cross-Origin-Resource-Policy` because it would
+  supersede CORS (`Access-Control-Allow-Origin`).
+  You can [set headers conditionally](https://helmetjs.github.io/faq/conditional-options/).
+* For widgets meant to be loaded into iframes on 3rd-party websites,
+  you'll need to disable the `X-Frame-Options`, and potentially adjust
+  your `Content-Security-Policy` to interact with the website that embeds
+  your iframe.
+
 ## HTTP header reference
 
 <details id="content-security-policy">
